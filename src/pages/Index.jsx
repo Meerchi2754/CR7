@@ -3,19 +3,17 @@ import { CourseSearch } from "@/components/CourseSearch";
 import { CourseCard } from "@/components/CourseCard";
 import { SkillTest } from "@/components/SkillTest";
 import { courses } from "@/data/courses";
-import { SearchFilters, Course } from "@/types/course";
-import { TestResult } from "@/types/test";
 import { BookOpen, GraduationCap, Brain, Award } from "lucide-react";
 
 const Index = () => {
-  const [filters, setFilters] = useState<SearchFilters>({
+  const [filters, setFilters] = useState({
     topic: '',
     level: 'all'
   });
-  const [searchResults, setSearchResults] = useState<Course[]>([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
   const [showTest, setShowTest] = useState(false);
-  const [testResult, setTestResult] = useState<TestResult | null>(null);
+  const [testResult, setTestResult] = useState(null);
 
   const handleSearch = () => {
     const filteredCourses = courses.filter(course => {
@@ -32,7 +30,7 @@ const Index = () => {
     setHasSearched(true);
   };
 
-  const handleTestComplete = (result: TestResult) => {
+  const handleTestComplete = (result) => {
     setTestResult(result);
     const newFilters = {
       topic: result.recommendedTopics[0] || '',

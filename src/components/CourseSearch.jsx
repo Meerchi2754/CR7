@@ -3,15 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search } from "lucide-react";
-import { SearchFilters } from "@/types/course";
 
-interface CourseSearchProps {
-  filters: SearchFilters;
-  onFiltersChange: (filters: SearchFilters) => void;
-  onSearch: () => void;
-}
-
-export function CourseSearch({ filters, onFiltersChange, onSearch }: CourseSearchProps) {
+export function CourseSearch({ filters, onFiltersChange, onSearch }) {
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardContent className="p-6">
@@ -35,7 +28,7 @@ export function CourseSearch({ filters, onFiltersChange, onSearch }: CourseSearc
             </label>
             <Select
               value={filters.level}
-              onValueChange={(value: 'all' | 'beginner' | 'intermediate' | 'expert') => 
+              onValueChange={(value) => 
                 onFiltersChange({ ...filters, level: value })
               }
             >

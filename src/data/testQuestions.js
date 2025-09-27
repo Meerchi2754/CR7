@@ -1,6 +1,4 @@
-import { TestQuestion } from "@/types/test";
-
-export const testQuestions: TestQuestion[] = [
+export const testQuestions = [
   // Java Questions
   {
     id: "java-1",

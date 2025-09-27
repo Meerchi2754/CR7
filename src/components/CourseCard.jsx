@@ -2,14 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star, Clock, ExternalLink } from "lucide-react";
-import { Course } from "@/types/course";
 
-interface CourseCardProps {
-  course: Course;
-}
-
-export function CourseCard({ course }: CourseCardProps) {
-  const getLevelColor = (level: string) => {
+export function CourseCard({ course }) {
+  const getLevelColor = (level) => {
     switch (level) {
       case 'beginner':
         return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
